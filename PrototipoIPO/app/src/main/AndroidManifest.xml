@@ -30,6 +30,8 @@
         </activity>
         <activity android:name=".Confirmacion">
         </activity>
+        <activity android:name=".borracita">
+        </activity>
     </application>
 
 </manifest>

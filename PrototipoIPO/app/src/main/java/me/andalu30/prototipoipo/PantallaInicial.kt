@@ -13,12 +13,18 @@ class PantallaInicial : AppCompatActivity() {
         setContentView(R.layout.activity_pantalla_inicial)
 
         var boton =  findViewById(R.id.button) as Button
+        var cancela = findViewById<Button>(R.id.cancelabutt)
 
         val intent = Intent(this, SeleccionTipo::class.java)
+        val intent2 = Intent(this, borracita::class.java)
 
         boton.setOnClickListener{
             startActivity(intent)
 
+        }
+
+        cancela.setOnClickListener{
+            startActivity(intent2)
         }
 
     }
