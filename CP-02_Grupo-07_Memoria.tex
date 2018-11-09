@@ -4,7 +4,8 @@
 \usepackage[margin=30mm]{geometry} %Margenes mas pequeños
 \usepackage{hyperref} %Enlaces en la documentacion
 \usepackage{graphicx} %Usar imagenes
-\graphicspath{{./media/}}
+\graphicspath{{media/}}
+\usepackage{float} %[H] de las figuras
 \usepackage[nottoc,numbib]{tocbibind} %Referencias aparece en el indice
 
 %opening
@@ -33,59 +34,166 @@
 
 \section{Introducción}
 \subsection{Motivación}
+La creación de este documento nace de la necesidad de documentar el segundo caso práctico de la asignatura de "Interacción Persona Ordenador" del grado de Ingeniería Informática - Tecnologías Informáticas de la Universidad de Sevilla.
+
 \subsection{Descripción de la tarea}
-Hemos decidido crear el prototipo de una interfaz gráfica de usuario de la renovación del DNI para una App móvil. Ya que actualmente los Smartphones han adquirido mucha importancia en nuestro día a día siendo la primera opción a la hora de realizar trámites cotidianos a través de internet. Los Sistemas Operativos utilizados serán tanto IOs como Android, pero el prototipo será presentado con los controles de Android.\\
+Hemos decidido crear el prototipo de la interfaz gráfica de usuario de una aplicación móvil que sirva para realizar la renovación del DNI/NIE/Pasaporte. Debido a que actualmente los smartphones han adquirido mucha importancia en nuestro día a día siendo la primera opción a la hora de realizar trámites cotidianos a través de internet, creemos que es una oportunidad interesante. Los Sistemas Operativos utilizados serán tanto iOS como Android, pero el prototipo será desarrollado y presentado en la plataforma Android.\\
+
+\subsection{Dispositivo y público objetivo}
+La tarea que se va a realizar a través de una interfaz gráfica de usuario es la solicitud de una cita previa para la renovación del documento nacional de indentidad (DNI, NIE, Pasaporte).\\
+El sistema de cita previa que hay actualmente solo opera a través de una aplicación web\cite{webcitaDNI} y queremos hacer una aplicación para que los usuarios que tengan dispositivos android puedan tener disponible ese servicio a través de sus terminales sin tener que utilizar la web del Ministerio.\\
 
 Nuestro público objetivo son, por lo general, personas adultas acostumbradas a usar aplicaciones móviles, ya que la tarea de pedir cita para la renovación del DNI no es una tarea enfocada a niños y queda fuera del alcance de la mayoría de personas mayores al no entenderse éstas con los smartphones, generalmente. Nuestro enfoque de la App es que sea sencilla con los pasos claros y bien definidos para que aunque el usuario no esté dentro de nuestro público objetivo no tenga ningún problema a la hora de utilizarla.
 
 
-\subsection{Dispositivo y público objetivo}
-La tarea que se va a realizar a través de una interfaz gráfica de usuario, es la solicitud de una cita previa para la renovación del documento nacional de indentidad (DNI, NIE, Pasaporte).\\
-  El sistema de cita previa que hay actualmente solo opera a través de una aplicación web y queremos hacer una aplicación para que los usuarios que tengan dispositivos android puedan tener disponible ese servicio a través de sus terminales.
 
 \subsection{Paradigma de Interacción}
-Debido al crecimiento del uso de dispositivos móviles (los nuevos ordenadores personales), creemos que es conveniente la creación y el uso de aplicaciones para estos. A si pues, hemos decidido llevar este servicio a este tipo de implementación para estos dispositivos para que la tarea a realizar sea sencilla y fácil de gestionar con los medios que estos dispositivos nos ofrecen.
+Debido al crecimiento del uso de dispositivos móviles (los nuevos ordenadores personales), creemos que es conveniente la creación y el uso de aplicaciones para estos. A si pues, hemos decidido llevar este servicio a este tipo de implementación para estos dispositivos para que la tarea a realizar sea sencilla y fácil de gestionar con los medios que estos dispositivos nos ofrecen.\\
+Esto sería, lo que en la literatura \cite{gonzalez2016paradigmas}, se conoce como el paradigma de interacción del ordenador de sobremesa, a pesar de que este nombre no sea adecuado, ya que se da a entender que sería una aplicación para un PC y no para un dispositivo smartphone.
 
 \subsection{Tipos de cita}
 Los usuarios de esta aplicación pueden estar interesados en solicitar diferentes tipos de cita. En concreto hemos decidido clasificar claramente el tipo de cita a pedir, son las siguientes:
 
 \begin{itemize}
-  \item Cita para renovar DNI: este tipo de cita te permite acudir a la comisaría que elijas y renovar el DNI.
-  \item Cita para renovar Pasaporte: este tipo de cita te permite acudir a la comisaría que elijas y renovar el pasaporte.
-  \item Cita para renovar el NIE: este tipo de cita te permite acudir a la comisaría que elijas y renovar el NIE.
-  \item Cita para renovar ambos (DNI y Pasaporte): este tipo de cita te permite acudir a la comisaría que elijas y renovar tanto el DNI y pasaporte.
+\item Cita para renovar DNI: este tipo de cita te permite acudir a la comisaría que elijas y renovar el DNI.
+\item Cita para renovar Pasaporte: este tipo de cita te permite acudir a la comisaría que elijas y renovar el pasaporte.
+\item Cita para renovar el NIE: este tipo de cita te permite acudir a la comisaría que elijas y renovar el NIE.
+\item Cita para renovar ambos (DNI y Pasaporte): este tipo de cita te permite acudir a la comisaría que elijas y renovar tanto el DNI y pasaporte.
 \end{itemize}
 
 \section{Prototipo de interfaz}
-A continuación vamos a definir cada una de las pantallas de la aplicación. En primer lugar hemos desarrollado unos bocetos rápidos para definir la aplicación, los cuales se pueden observar en el anexo \ref{bocetos}. Posteriormente hemos empleado la técnica de “Prototipos de papel”, usando la herramienta “Android Studio”.
+A continuación vamos a definir cada una de las pantallas de la aplicación. En primer lugar hemos desarrollado unos bocetos rápidos para definir la aplicación, los cuales se pueden observar en el anexo \ref{bocetos}. Posteriormente hemos empleado la técnica de “Prototipos de papel” ya que muchos profesionales de la usabilidad coinciden en afirmar que, aunque el prototipado en papel parece un método simple, puede proporcionar una gran cantidad de retroalimentación muy útil que resultará en el diseño de mejores productos\cite{carolyn2003retroalimentacion}.\\
+Para la elaboración de estos prototipos de papel no hemos utilizado una herramienta de prototipado, obtando por realizar un prototipo básico en Android Studio\cite{androidstudio}, el IDE oficial de Google para realizar aplicaciones Android.\\
+De esta forma podemos crear un prototipo en papel que, con apenas un poco mas de tiempo, podriamos hacer funcionar facilmente en un dispositivo Android. De esta forma podriamos entender mucho mejor como los usuarios interaccionaran con la aplicación.\\
+Cabe destacar el uso de Material Desing\cite{materialdesing}, la filosofia de diseño del gigante de internet que ayudará a los usuarios a sentirse como en casa cuando abran la aplicación.
 
 \subsection{Pantalla principal}
-En esta pantalla nos encontramos ante la explicación de cómo proceder y un único botón para acceder a la cita.
+En esta pantalla (figura \ref{fig:pantallainicial}) nos encontramos ante la explicación de cómo proceder y un dos botones, uno que nos permite iniciar el trámite de petición de cita y otro que nos permite anular las citas que tengamos.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{1.png}
+  \caption{Pantalla principal de la aplicación}
+  \label{fig:pantallainicial}
+\end{figure}
+
+
+\subsection{Anulación de una cita}
+En la figura \ref{fig:anula1} podemos ver la pantalla de selección de citas que se desean anular. Podremos seleccionar una de las citas que tengamos confirmadas y tambien podremos anular una cita mediante un localizador y mediante el DNI.\\
+Al pulsar sobre el boton "Anular citas" nos aparecerá un popup en el que se nos pedirá que confirmemos la operación. Podemos observar este popup en la figura \ref{fig:anula2}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.45\linewidth}
+\includegraphics[width=\textwidth]{2.png}
+\caption{Pantalla de selección de las citas para anulación.}
+\label{fig:anula1}
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+\includegraphics[width=\textwidth]{3.png}
+\caption{Popup de confirmación de la anulación de las citas.}
+\label{fig:anula2}
+\end{minipage}
+\end{figure}
+
 
 \subsection{Selección de tipo de documento}
-Accedemos ahora a una nueva pantalla donde nos ofrece la opción de escoger el tipo de documento a renovar mediante 2 botones diferenciados.
+Si en la pantalla inicial fuesemos seleccionado la opción de "Pedir cita" accederemos a una nueva pantalla donde nos ofrece la opción de escoger el tipo de documento a renovar mediante 2 botones diferenciados.\\
+Podremos seleccionar entre el DNI, en el caso de que tengamos nacionalidad Española, o NIE, en el caso de que seamos residentes extranjeros.\\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{4.png}
+  \caption{Selección de tipo de documento}
+  \label{fig:tipodoc}
+\end{figure}
 
 \subsection{Selección de tipo de cita}
-Esta imagen nos muestra una nueva pantalla a la que se accede cuando pulsas en la opción de DNI de la anterior. Vemos aquí diferentes botones para renovar DNI, Pasaporte o ambos.
+Esta imagen (figura \ref{fig:tipocita}) nos muestra una nueva pantalla a la que se accede cuando pulsas en la opción de DNI de la anterior. Vemos aquí diferentes botones para renovar DNI, Pasaporte o ambos.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{5.png}
+  \caption{Selección de tipo de cita}
+  \label{fig:tipocita}
+\end{figure}
 
 \subsection{Selección de provincia y comisaría}
 El siguiente paso nos lleva a la siguiente pantalla en la que tenemos un desplegable para elegir la provincia en la que vamos a pedir la cita y, una vez seleccionada la provincia, nos aparece abajo la lista de comisarias disponibles para elegir nuestra preferencia.
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.45\linewidth}
+\includegraphics[width=\textwidth]{6.png}
+\caption{Selección de la provincia de entre las disponibles en el desplegable.}
+\label{provcom1}
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+\includegraphics[width=\textwidth]{7.png}
+\caption{Selección de la comisaría deseada.}
+\label{provcom2}
+\end{minipage}
+\end{figure}
 
 \subsection{Formulario de datos del usuario}
 A continuación nos encontramos ante un formulario en el que debemos introducir los datos requeridos y un botón para continuar.
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.45\linewidth}
+\includegraphics[width=\textwidth]{8.png}
+\caption{Formulario de datos de usuario necesarios para la renovación del documento}
+\label{form1}
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+\includegraphics[width=\textwidth]{9.png}
+\caption{Popup que aparece al no rellenar los campos}
+\label{form2}
+\end{minipage}
+
+
+
+\end{figure}
 
 
 \subsection{Selección de fecha y hora}
 La siguiente pantalla vemos un calendario para seleccionar el día que preferimos nuestra cita y para cada día se van actualizando la disponibilidad de las horas para ese día, estando de color morado las ocupadas y en verde las disponibles.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{10.png}
+  \caption{Selección de la fecha y hora deseada}
+  \label{fechahora}
+\end{figure}
 
 \subsection{Resumen de la cita}
 Esta pantalla nos ofrece el resumen de nuestra cita con dos botones con las opciones para confirmar o volver atrás por si nos hemos equivocado en algún campo.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{11.png}
+  \caption{Pantalla de resumen en la que el usuario podrá comprobar si todo esta correcto.}
+  \label{resumen}
+\end{figure}
 
 \subsection{Confirmacion de la cita}
-Aquí nos encontramos con un mensaje de confirmación y nos ofrecen la opciones de enviarnos el resumen de la cita por sms, por correo o añadir un recordatorio en nuestro calendario.
+Aquí nos encontramos con un mensaje de confirmación y nos ofrecen la opciones de enviarnos el resumen de la cita por SMS, por correo o añadir un recordatorio en nuestro calendario.
+\begin{figure}[H]
+\centering
+\begin{minipage}{.45\linewidth}
+\includegraphics[width=\textwidth]{12.png}
+\caption{Pantalla tras la confirmacion de la cita}
+\label{confirmacion1}
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+\includegraphics[width=\textwidth]{13.png}
+\caption{Toast que aparece tras pulsar el boton de finalizar.}
+\label{confirmacion2}
+\end{minipage}
+\end{figure}
 
 
 \section{Evaluacion del prototipo}
+En este apartado describimos la evaluación que hemos hecho del prototipo vertical que ya hemos presentado anteriormente, hemos empleado la técnica de recorrido cognitivo para esta evaluación y a continuación presentamos las conclusiones y las propuestas de mejora de nuestro prototipo.\\
+A continuación presentamos un diagrama donde se muestra una interacción con nuestro prototipo, siendo las señales la representación de la interacción directa sobre la interfaz.
+
+
+
 \subsection{Problemas detectados}
 \subsubsection{Problema 1:}
 \subsubsection{Problema 2:}
@@ -139,8 +247,24 @@ Guia de estilo de los botones en material desing,
 Carolyn, Snyder,
 \textit{Paper prototyping : the fast and easy way to design and refine user interfaces},
  Morgan Kaufmann, Elsevier Science. ISBN 9780080513508. OCLC 63116735.
-%Muchos profesionales de la usabilidad coinciden en afirmar que, aunque el prototipado en papel parece un método simple, puede proporcionar una gran cantidad de retroalimentación muy útil que resultará en el diseño de mejores productos.
 
+
+\bibitem{webcitaDNI}
+Ministerio del interior,
+\href{https://www.citapreviadnie.es/citaPreviaDniExp/}{\textit{Solicitud de Cita Previa para DNI o Pasaporte}}, Página Web.
+
+
+\bibitem{gonzalez2016paradigmas}
+J. M. González Romano
+\textit{Dispositivos, estilos y paradigmas}, 2016, Universidad de Sevilla
+
+\bibitem{androidstudio}
+Google
+\href{https://developer.android.com/studio/}{\textit{Android Studio}}, Pagina Web.
+
+\bibitem{materialdesing}
+Google
+\href{https://material.io/}{\textit{Material Desing}}, Pagina Web.
 
 
 
