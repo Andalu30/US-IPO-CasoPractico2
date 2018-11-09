@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">PrototipoIPO</string>
+    <string name="lorenipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse velit ante, laoreet
+        vitae arcu nec, finibus aliquam ipsum. Nullam euismod dui ut ipsum laoreet, quis iaculis sapien semper. Integer
+        eu hendrerit urna. Aenean lacinia laoreet mauris et consectetur. Mauris rutrum nisl nec nisl ultrices, porttitor
+        vulputate tortor viverra. Praesent sed viverra quam, quis dapibus felis. Nam quis varius diam. Nulla aliquam
+        arcu aliquet sagittis malesuada. Praesent vestibulum rutrum turpis. Nam non odio feugiat, viverra libero
+        eleifend, faucibus neque. Praesent ac enim mauris. Duis luctus pretium nisi, nec fringilla lectus. Maecenas enim
+        ligula, luctus ut elit id, eleifend porta metus. Nunc a tellus id mauris vehicula scelerisque. Pellentesque
+        egestas fringilla felis. Nulla tellus sapien, dictum in tortor eu, ultricies rhoncus quam.
+    </string>
+    <string-array name="provincias">
+        <item>Huelva</item>
+        <item>Sevilla</item>
+        <item>Cádiz</item>
+        <item>Córdoba</item>
+        <item>Málaga</item>
+        <item>Jaen</item>
+        <item>Granada</item>
+        <item>Almería</item>
+    </string-array>
+
+
+</resources>
