@@ -7,6 +7,7 @@
 \graphicspath{{media/}}
 \usepackage{float} %[H] de las figuras
 \usepackage[nottoc,numbib]{tocbibind} %Referencias aparece en el indice
+\usepackage{pdflscape} %Pagina horizontal
 
 %opening
 \title{
@@ -34,7 +35,7 @@
 
 \section{Introducción}
 \subsection{Motivación}
-La creación de este documento nace de la necesidad de documentar el segundo caso práctico de la asignatura de "Interacción Persona Ordenador" del grado de Ingeniería Informática - Tecnologías Informáticas de la Universidad de Sevilla.
+La creación de este documento nace de la necesidad de documentar el segundo caso práctico de la asignatura de ``Interacción Persona Ordenador" del grado de Ingeniería Informática - Tecnologías Informáticas de la Universidad de Sevilla.
 
 \subsection{Descripción de la tarea}
 Hemos decidido crear el prototipo de la interfaz gráfica de usuario de una aplicación móvil que sirva para realizar la renovación del DNI/NIE/Pasaporte. Debido a que actualmente los smartphones han adquirido mucha importancia en nuestro día a día siendo la primera opción a la hora de realizar trámites cotidianos a través de internet, creemos que es una oportunidad interesante. Los Sistemas Operativos utilizados serán tanto iOS como Android, pero el prototipo será desarrollado y presentado en la plataforma Android.\\
@@ -65,7 +66,7 @@ Los usuarios de esta aplicación pueden estar interesados en solicitar diferente
 A continuación vamos a definir cada una de las pantallas de la aplicación. En primer lugar hemos desarrollado unos bocetos rápidos para definir la aplicación, los cuales se pueden observar en el anexo \ref{bocetos}. Posteriormente hemos empleado la técnica de “Prototipos de papel” ya que muchos profesionales de la usabilidad coinciden en afirmar que, aunque el prototipado en papel parece un método simple, puede proporcionar una gran cantidad de retroalimentación muy útil que resultará en el diseño de mejores productos\cite{carolyn2003retroalimentacion}.\\
 Para la elaboración de estos prototipos de papel no hemos utilizado una herramienta de prototipado, obtando por realizar un prototipo básico en Android Studio\cite{androidstudio}, el IDE oficial de Google para realizar aplicaciones Android.\\
 De esta forma podemos crear un prototipo en papel que, con apenas un poco mas de tiempo, podriamos hacer funcionar facilmente en un dispositivo Android. De esta forma podriamos entender mucho mejor como los usuarios interaccionaran con la aplicación.\\
-Cabe destacar el uso de Material Desing\cite{materialdesing}, la filosofia de diseño del gigante de internet que ayudará a los usuarios a sentirse como en casa cuando abran la aplicación.
+
 
 \subsection{Pantalla principal}
 En esta pantalla (figura \ref{fig:pantallainicial}) nos encontramos ante la explicación de cómo proceder y un dos botones, uno que nos permite iniciar el trámite de petición de cita y otro que nos permite anular las citas que tengamos.
@@ -190,24 +191,51 @@ Aquí nos encontramos con un mensaje de confirmación y nos ofrecen la opciones 
 
 \section{Evaluacion del prototipo}
 En este apartado describimos la evaluación que hemos hecho del prototipo vertical que ya hemos presentado anteriormente, hemos empleado la técnica de recorrido cognitivo para esta evaluación y a continuación presentamos las conclusiones y las propuestas de mejora de nuestro prototipo.\\
-A continuación presentamos un diagrama donde se muestra una interacción con nuestro prototipo, siendo las señales la representación de la interacción directa sobre la interfaz.
-
-
+En el anexo \ref{diagramapantallas}, presentamos un diagrama de las pantallas de nuestra aplicación.
 
 \subsection{Problemas detectados}
-\subsubsection{Problema 1:}
-\subsubsection{Problema 2:}
-\subsubsection{Problema 3:}
+Tras la evaluación de nuestro prototipo se han descubierto varios problemas que afectan a la usabilidad de la apliacación. A continuación se detallarán en más profundidad.
+\subsubsection{Problema 1: Los datos se introducen antes de seleccionar el horario deseado.}
+Como vemos en el anexo \ref{anexodiagrama}, se llega a la pantalla de formulario en la que el usuario tiene que introducir sus datos después de haber seleccionado la provincia y la comisaria. Este comportamiento simula el comportamiento actual de la web del Ministerio \cite{webcitaDNI} sin embargo, tras la evaluación ha quedado claro que es uno de los problemas mas graves de la aplicación ya que en el caso de que un usuario seleccione una comisaria, rellene sus datos y no pueda seleccionar ningun horario porque estubiese todo ocupado, el usuario deberia de retroceder una patalla para reintroducir sus datos o varias si lo que desea es cambiar de comisaría.
+Espe problema se solucionará de una forma muy sencilla como se explicará en el apartado \ref{solucion1}.
+
+\subsubsection{Problema 2: Los botones no estandarizados.}
+Tal y como podemos ver en las figuras los botones de nuestro prototipo no estan estandarizados. Algunos de ellos se encuentran en un color y otros en otro. Algunos tienen aplicada un guia de estilo mientras que otros son los botones estandar que renderiza el dispositivo.\\
+En la seccion \ref{solucion2} daremos solución a este problema.
+
+\subsubsection{Problema 3: La aplicacion no implementa una función de consulta de citas}\label{consultacitas}
+Durante nuestra evaluación nos hemos dado cuenta de que nuestro prototipo no cuenta con una función fundamental que nuestros sujetos de prueban han echado en falta.\\
+Esta función sería la de consultar nuestras citas. Si bien es cierto que las citas se pueden consultar en la sección de anular citas, se echa en falta que haya una sección en la que podamos consultar la información de nuestras citas sin el peligro de anularla.
 
 \subsection{Conclusiones de la evaluacion}
-\subsubsection{Solucion 1}
-\subsubsection{Solucion 2}
+\subsubsection{Solucion 1}\label{solucion1}
+La solución a este problema es bastante simple; realizando un simple cambio del orden de como se presentan las pantallas al usuario conseguiriamos que el problema no se diese.\\
+De este modo, tendriamos dos opciones, que el usuario introduzca sus datos al comienzo de la operación o al final de la operacion. \\
+Suponiendo que seleccionamos la primera opción, el usuario introducira todos sus datos al comienzo del todo y posteriormente seleccionará la provincia, comisaria, fecha y horario deseado. Al utilizar esta solución hacemos imposible que el usuario tenga que volver a introducir sus datos si un horario no esta disponible.
+
+\subsubsection{Solucion 2}\label{solucion2}
+La solucion a este problema es realmente mucho mas simple. Para estandarizar los botones podriamos utilizar un estilo de botones que sean facilmente entendibles por todas las personas y que aprovechen la memoria a largo plazo de las personas \cite{diapTema2}. Si el lector tiene conocimiento del desarrollo en Android ya estará viendo una solución sencilla, utilizar una guia de estilo estandarizada, en el caso del desarrollo en Android, esta guia de estilo podría ser Material Desing \cite{materialdesing}, desarrollada por Google, Material Desing se alza como la guia de estilo mas utilizada en Android, por lo que su uso sería mas que razonable.
+
 \subsubsection{Solucion 3}
+Tal y como hemos visto en \ref{consultacitas}, una solución sería utilizar parte de la pantalla de anulacion de citas (Figura \ref{fig:anula1}) para utilizarla en una nueva pantalla en la que mostremos los datos de todas la citas.
 
-
-
+\newpage
 \section{Anexos}
 \subsection{Bocetos iniciales}\label{bocetos}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.15]{bocetos.jpg}
+\end{figure}
+
+\newpage
+ \begin{landscape}\label{diagramapantallas}
+ \subsection{Diagrama de pantallas de la aplicación}\label{anexodiagrama}
+ \begin{figure}[H]
+   \centering
+   \includegraphics[scale=0.65]{diagramapantallas.png}
+ \end{figure}
+ \end{landscape}
+
 
 
 
@@ -231,16 +259,6 @@ A continuación presentamos un diagrama donde se muestra una interacción con nu
   José mariano González Romano y Víctor Díaz Madrigal,
   \textit{Evaluación},
   \href{https://s3-eu-central-1.amazonaws.com/learn-eu-central-1-prod-fleet01-xythos/5ac734ed505df/1868140?response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27IPO-2018-19-04-Evaluaci%25C3%25B3n.pdf&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20181108T092127Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Credential=AKIAIZ3QX2YUHH4EOO3A%2F20181108%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Signature=df3ee954b039d2239e0947995469951f22d0bd91826341575b083d05e3865ccc}{Diapositivas de clase. Tema 4}.
-
-\bibitem{iso25010}
-ISO,
-\textit{ISO 25010},
-\href{https://iso25000.com/index.php/normas-iso-25000/iso-25010/23-usabilidad}{Página Web}.
-
-\bibitem{matdesing}
-Guia de estilo de los botones en material desing,
-\textit{Buttons - Material Desing},
-\href{https://material.io/design/components/buttons.html}{Página Web}.
 
 
 \bibitem{carolyn2003retroalimentacion}
