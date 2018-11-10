@@ -14,9 +14,13 @@ class PantallaInicial : AppCompatActivity() {
 
         var boton =  findViewById(R.id.button) as Button
         var cancela = findViewById<Button>(R.id.cancelabutt)
+        var citas = findViewById<Button>(R.id.citasbutt2)
+
 
         val intent = Intent(this, SeleccionTipo::class.java)
         val intent2 = Intent(this, borracita::class.java)
+        val intent3 = Intent(this, miscitas::class.java)
+
 
         boton.setOnClickListener{
             startActivity(intent)
@@ -26,6 +30,7 @@ class PantallaInicial : AppCompatActivity() {
         cancela.setOnClickListener{
             startActivity(intent2)
         }
+        citas.setOnClickListener { startActivity(intent3) }
 
     }
 

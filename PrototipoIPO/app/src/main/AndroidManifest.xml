@@ -32,6 +32,11 @@
         </activity>
         <activity android:name=".borracita">
         </activity>
+        <activity
+                android:name=".miscitas"
+                android:label="@string/title_activity_miscitas"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
