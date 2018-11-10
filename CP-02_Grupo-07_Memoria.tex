@@ -8,6 +8,7 @@
 \usepackage{float} %[H] de las figuras
 \usepackage[nottoc,numbib]{tocbibind} %Referencias aparece en el indice
 \usepackage{pdflscape} %Pagina horizontal
+\usepackage{pdfpages} %Insertar pdf
 
 %opening
 \title{
@@ -252,6 +253,14 @@ En la figuras figuras \ref{nuevoinicio} y \ref{miscitas} podemos ver como quedar
    \includegraphics[scale=0.65]{diagramapantallas.png}
  \end{figure}
  \end{landscape}
+
+
+
+\includepdf[scale=0.8,pages=1,pagecommand=\subsection{Recorrido cognitivo - Hoja de datos}]{recorrido_cognitivo_hoja_de_datos.pdf}
+\includepdf[scale=0.8,pages=2-,pagecommand={}]{recorrido_cognitivo_hoja_de_datos.pdf}
+
+\includepdf[scale=0.8,pages=1,pagecommand=\subsection{Recorrido cognitivo - Hoja de evaluacion}]{recorrido_cognitivo_hoja_de_evaluacion.pdf}
+\includepdf[scale=0.8,pages=2-,pagecommand={}]{recorrido_cognitivo_hoja_de_evaluacion.pdf}
 
 
 
